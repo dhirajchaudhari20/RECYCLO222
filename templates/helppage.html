@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Frequently Asked Questions</title>
+    <link rel="stylesheet" href="../vendor/help.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">RECYCLO</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="../templates/firstpage.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../templates/firstpage.html">Firstpage</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../index.html">Index</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../templates/helppage.html">Help</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="wrapper">
+      <p>Recyclo Help</p>
+      <h1>Frequently Asked Questions</h1>
+
+      <div class="faq">
+        <button class="accordion">
+          What is Recyclo?
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="pannel">
+          <p>
+            collecting and reusing materials that would otherwise be discarded as waste.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq">
+        <button class="accordion">
+          How does it work?
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="pannel">
+          <p>
+            Sellers can create listings for the items or services they want to sell. They typically provide details such as a title, description, price, and location. They may also include images to showcase the item.
+            Buyers can search for specific items or browse through categories to find products or services of interest.
+            Interested buyers can contact sellers through the platform's messaging system. 
+          </p>
+        </div>
+      </div>
+
+      <div class="faq">
+        <button class="accordion">
+          User Manual And Guidelines.
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="pannel">
+          <p><ol>
+            <li><b>User Registration:</b><br>
+
+             Users need to register for an account on Recyclo to start using the platform. This usually involves providing basic information such as a valid email address and creating a username and password. <br><br></li>
+
+             <li><b>Listing Items for Sale:</b><br>
+
+             Sellers can create listings for the items or services they want to sell. They typically provide details such as a title, description, price, and location. They may also include images to showcase the item. <br><br></li>
+             
+             <li><b>Categorization and Tags:</b><br>
+
+             Sellers categorize their items into appropriate categories and may add relevant tags to help potential buyers find their listings easily. <br><br></li>
+             
+             <li><b>Search and Browse:</b><br>
+
+             Buyers can search for specific items or browse through categories to find products or services of interest.Recyclo usually provides search filters to refine results based on location, price range, and other criteria. <br><br></li>
+            
+             <li><b>Contacting Sellers:</b><br>
+
+             Interested buyers can contact sellers through the platform's messaging system. This allows them to inquire about the item, negotiate the price, and discuss other details. <br><br></li>
+            
+             <li><b>Meeting and Transactions:</b><br>
+
+             Once a buyer and seller agree on the terms, they arrange a meeting to inspect the item and complete the transaction. The actual exchange of goods and payment is typically done in person between the parties involved. <br><br></li>
+
+             <li><b>Feedback and Ratings:</b><br>
+             
+             After a successful transaction, both buyers and sellers may have the option to leave feedback and ratings for each other. This helps build trust within the Recyclo community and provides insights into the reliability of users. <br><br></li>
+            
+             <li><b>Safety and Guidelines:</b><br>
+
+             Recyclo usually provides safety guidelines and tips for users to ensure secure transactions. This may include meeting in public places, avoiding advanced payments, and being cautious about potential scams. <br><br></li>
+            </ol>
+          </p>
+        </div>
+      </div>
+
+      <div class="faq">
+        <button class="accordion">
+          Contact Us For Any Quries.
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="pannel">
+          <p>
+            <b>Email:</b> abc123@gmail.com <EMAIL>
+            <br />
+            <b>Phone:</b> +234 803 234 5678
+            <br />
+            <b>Address:</b> 123 Main Street, City, State, Country
+          </p>
+        </div>
+      </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <script>
+      var acc = document.getElementsByClassName("accordion");
+      var i;
+
+      for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+          this.classList.toggle("active");
+          this.parentElement.classList.toggle("active");
+
+          var pannel = this.nextElementSibling;
+
+          if (pannel.style.display === "block") {
+            pannel.style.display = "none";
+          } else {
+            pannel.style.display = "block";
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

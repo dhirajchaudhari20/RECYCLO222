@@ -1,0 +1,150 @@
+<?php
+// Database connection parameters
+$host = 'localhost';
+$dbname = 'patient';
+$username = 'root';
+$password = '';
+
+// Establishing a connection to the database
+try {
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die("Error: " . $e->getMessage());
+}
+
+// Function to sanitize input data
+function sanitizeInput($data) {
+    return htmlspecialchars(strip_tags($data));
+}
+
+// Check if the form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Retrieve user data from the form
+    $fullName = sanitizeInput($_POST['full_name']);
+    $email = sanitizeInput($_POST['email']);
+    $username = sanitizeInput($_POST['username']);
+    $password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Hashing the password
+
+    // Insert user data into the "patients" table
+    $sql = "INSERT INTO patients (full_name, email, username, password) VALUES (?, ?, ?, ?)";
+    $stmt = $pdo->prepare($sql);
+
+    try {
+        $stmt->execute([$fullName, $email, $username, $password]);
+        echo "User data inserted successfully!";
+    } catch (PDOException $e) {
+        die("Error: " . $e->getMessage());
+    }
+}
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>register user loginpage</title>
+    <link rel="stylesheet" href="../vendor/formstyle.css">
+</head>
+<body>
+    <div class="login-page">
+      <div class="backbtn"><button>
+        <a href="../index.html"><h3>
+          Home page</h3>
+        </a>
+      </button>
+      </div>
+        <form >
+          <form class="container" action="register.php" method="post">
+           <div class="input-box">
+            <caption>
+                <b>This the registeration page please login to RECYCLO.</b>
+            </caption>
+            <h1><span>Login</span></h1>
+            <input type="text" placeholder="Full Name" id="name" reqiured>  <br> 
+            <input type="numbers" placeholder="Your Mobile Number" id="number"><br>
+            <div class="row g-3">
+                <form class="row g-3">
+                    <div class="col-md-6">
+                      <label for="inputEmail4" class="form-label" placeholder="Enter Email">Email</label>
+                      <input type="email" class="form-control" id="inputEmail4">
+                    </div>
+                    <div class="col-md-6">
+                      <label for="inputPassword4" class="form-label" placeholder="password">Password</label>
+                      <input type="password" class="form-control" id="inputPassword4">
+                    </div>
+                    <div class="col-12">
+                      <label for="inputAddress" class="form-label" placeholder="Enter Address">Address</label>
+                      <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                    </div>
+                    <div class="col-md-6">
+                      <label for="inputCity" class="form-label">City</label>
+                      <input type="text" class="form-control" id="inputCity">
+                    </div>
+                    <div class="col-md-4">
+                      <label for="inputState" class="form-label">State</label>
+                      <select id="inputState" class="form-select">
+                        <div class="state-option">
+                        <option selected>Choose...</option>
+                        <option>Andhra Pradesh</option>
+                        <option>Arunachal Pradesh</option>
+                        <option>Assam</option>
+                        <option>Bihar</option>
+                        <option>Chhattisgarh</option>
+                        <option>Goa</option>
+                        <option>Gujarat</option>
+                        <option>Haryana</option>
+                        <option>Himachal Pradesh</option>
+                        <option>Jharkhand</option>
+                        <option>Karnataka</option>
+                        <option>Kerala</option>
+                        <option>Madhya Pradesh</option>
+                        <option>Maharashtra</option>
+                        <option>Manipur</option>
+                        <option>Manipur</option>
+                        <option>Meghalaya</option>
+                        <option>Mizoram</option>
+                        <option>Nagaland</option>
+                        <option>Odisha</option>
+                        <option>Punjab</option>
+                        <option>Rajasthan</option>
+                        <option>Sikkim</option>
+                        <option>Tamil Nadu</option>
+                        <option>Telangana</option>
+                        <option>Tripura</option>
+                      </div>
+                      </select>
+                    </div>
+                    <!-- <div class="col-md-2">
+                      <label for="inputZip" class="form-label">Zip</label>
+                      <input type="text" class="form-control" id="inputZip">
+                    </div> -->
+                    <!-- <div class="col-12">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="gridCheck">
+                        <label class="form-check-label" for="gridCheck">
+                          I am above 18 <br>
+                        </label>
+                        <label class="form-check-label" for="gridCheck">
+                          Check me out
+                        </label>
+                        <label class="form-check-label" for="gridCheck">
+                          Check me out
+                        </label>
+                      </div>
+                    </div> -->
+
+              </div>
+           <div class="remember-forget">
+            <label ><a href="../templates/helppage.html">Help?</a></label>
+           </div>
+           <button type="submit" class="btn">Login</button>
+           </div>
+        
+        </form>
+        </form>
+      </div>
+</body>
+</html>
